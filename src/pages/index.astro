@@ -1,16 +1,29 @@
 ---
-
+import SiteLayout from "@/layouts/site_layout.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<SiteLayout title="Main" description="Main page">
+    <main>
+        <section id="hero">
+            <h1>Hi, I'm Thayen</h1>
+            <p>Software Engineer specializing in building modern web experiences.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <!-- Project cards will go here -->
+            <div class="project-grid">
+                <p>Coming soon...</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Astro</li>
+                <li>TypeScript</li>
+                <li>Tailwind CSS</li>
+            </ul>
+        </section>
+    </main>
+</SiteLayout>
