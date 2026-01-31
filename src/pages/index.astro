@@ -1,29 +1,85 @@
 ---
-import SiteLayout from "@/layouts/site_layout.astro"
+import Keyword from "@/components/keyword.astro";
+import SiteLayout from "@/layouts/site_layout.astro";
 ---
 
-<SiteLayout title="Main" description="Main page">
-    <main>
-        <section id="hero">
-            <h1>Hi, I'm Thayen</h1>
-            <p>Software Engineer specializing in building modern web experiences.</p>
-        </section>
-
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <!-- Project cards will go here -->
-            <div class="project-grid">
-                <p>Coming soon...</p>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Astro</li>
-                <li>TypeScript</li>
-                <li>Tailwind CSS</li>
-            </ul>
-        </section>
-    </main>
+<SiteLayout
+  title="Home"
+  description="Portfolio of Thayen, a Software Engineer and Fanshawe Graduate."
+>
+  <header>
+    <Keyword>
+      <Fragment slot="display"><h1>Thayen Burtenshaw</h1></Fragment>
+      (thuh-AY-en)
+    </Keyword>
+    <p>A Fanshawe College graduate looking to start my career.</p>
+    <div>Ontario, Canada</div>
+    <address>
+      <a href="https://github.com/N0tAI" target="_blank">Github</a>
+      <a href="https://linkedin.com/in/thayen/" target="_blank">LinkedIn</a>
+      <a href="mailto:me@thayen.dev" target="_blank">Email</a>
+      <a href="/resume.pdf" target="_blank">Resume</a>
+    </address>
+  </header>
+  <main class="page-content">
+    <section id="experience">
+      <h2>Experience</h2>
+      <article>
+        <Keyword>
+          <Fragment slot="display">
+            <h3>Quality Assurance Analyst Co-op</h3>
+          </Fragment>
+          <time datetime="P4M">Jan 2023 to Apr 2023</time>
+        </Keyword>
+        <p>At <strong>Carfax Canada</strong></p>
+        <ul></ul>
+      </article>
+      <article>
+        <Keyword>
+          <Fragment slot="display">
+            <h3>Co-op Student</h3>
+          </Fragment>
+          <time datetime="P6M">Jan 2019 to Jun 2019</time>
+        </Keyword>
+        <p>At <strong>Powernoodle</strong></p>
+      </article>
+    </section>
+    <section id="education">
+      <h2>Education</h2>
+      <article>
+        <h3>Fanshawe College</h3>
+        <p>
+          <Keyword>
+            <Fragment slot="display">
+              <strong>Computer Programming and Analysis</strong>
+            </Fragment>
+            At Fanshawe I worked in a variety of languages including
+            <strong>C#</strong>,
+            <strong>Python</strong>,
+            <strong>Java</strong>,
+            <strong>C</strong>,
+            <strong>C++</strong>,
+            <strong>JavaScript/Typescript</strong>, and <strong>PHP</strong>.
+          </Keyword>
+        </p>
+        <p>
+          Graduated: <strong
+            ><time datetime="2025-12-20">December 2025</time></strong
+          >
+        </p>
+        <p>
+          GPA: <Keyword
+            ><Fragment slot="display"><strong>3.32/4.2</strong></Fragment
+            >79.0%</Keyword
+          >
+        </p>
+        <ul>
+          <li><p>Awarded <strong>Dean's Honour Roll</strong></p></li>
+        </ul>
+      </article>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+    </section>
+  </main>
 </SiteLayout>

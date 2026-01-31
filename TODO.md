@@ -1,0 +1,12 @@
+- [ ] Fix flex box issues at the top for the headings
+- [ ] When scrolling past heading transition heading into floating sidebar (zen minimal mode with icons for social media and popups for names)
+- [ ] Projects section
+- [ ] Add/finish education
+- [ ] Transcript link/contact email
+- [ ] Accessibility
+- [ ] Minimize javascript and css
+- [ ] Add recording of name
+- [ ] Bug fix/test
+- [ ] Get reviewed
+- [ ] SEO
+- [ ] Create Favicon and site icon

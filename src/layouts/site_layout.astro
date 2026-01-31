@@ -1,7 +1,5 @@
 ---
 const { title, description } = Astro.props;
-import Header from "@/components/header.svelte";
-import Footer from "@/components/footer.html";
 ---
 
 <html lang="en">
@@ -11,18 +9,11 @@ import Footer from "@/components/footer.html";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
-    <title>{title ? `${title} - ` : ""}</title></head
-  >thayen.dev
+    <title>{title ? `${title} - thayen.dev` : "thayen.dev"}</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
 
   <body>
-    <header>
-      <Header />
-    </header>
-    <main>
-      <slot />
-    </main>
-    <footer>
-      <Footer />
-    </footer>
+    <div class="centered main-page"><slot /></div>
   </body>
 </html>
