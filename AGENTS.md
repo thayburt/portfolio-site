@@ -1,4 +1,4 @@
-# Gemini CLI Context: thayen.dev
+# AGENTS.md Context: thayen.dev
 
 ## Project Overview
 

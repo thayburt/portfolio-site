@@ -10,7 +10,7 @@ import SiteLayout from "@/layouts/site_layout.astro";
   <header>
     <Keyword>
       <Fragment slot="display"><h1>Thayen Burtenshaw</h1></Fragment>
-      (thuh-AY-en)
+      thuh-AY-en
     </Keyword>
     <p>A Fanshawe College graduate looking to start my career.</p>
     <div>Ontario, Canada</div>
@@ -53,13 +53,12 @@ import SiteLayout from "@/layouts/site_layout.astro";
             <Fragment slot="display">
               <strong>Computer Programming and Analysis</strong>
             </Fragment>
-            At Fanshawe I worked in a variety of languages including
             <strong>C#</strong>,
             <strong>Python</strong>,
             <strong>Java</strong>,
             <strong>C</strong>,
             <strong>C++</strong>,
-            <strong>JavaScript/Typescript</strong>, and <strong>PHP</strong>.
+            <strong>JavaScript/Typescript</strong>, and <strong>PHP</strong>
           </Keyword>
         </p>
         <p>
@@ -74,7 +73,7 @@ import SiteLayout from "@/layouts/site_layout.astro";
           >
         </p>
         <ul>
-          <li><p>Awarded <strong>Dean's Honour Roll</strong></p></li>
+          <li>Awarded <strong>Dean's Honour Roll</strong></li>
         </ul>
       </article>
     </section>
@@ -83,3 +82,24 @@ import SiteLayout from "@/layouts/site_layout.astro";
     </section>
   </main>
 </SiteLayout>
+
+<style>
+  .page-content {
+    background-color: var(--bg-color);
+    position: relative;
+    z-index: 1;
+  }
+
+  .content {
+    margin-top: 2rem;
+  }
+
+  ul {
+    list-style-type: lower-roman;
+    list-style-position: inside;
+  }
+
+  li::marker {
+    color: var(--primary-accent);
+  }
+</style>

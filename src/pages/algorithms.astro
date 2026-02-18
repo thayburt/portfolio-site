@@ -1,0 +1,25 @@
+---
+import SiteLayout from '../layouts/site_layout.astro';
+import SortingDemos from '../components/SortingDemos.svelte';
+---
+
+<SiteLayout title="Algorithms">
+    <div class="centered">
+        <h1>Sorting Visualization</h1>
+        
+        <main class="visualizer-container">
+            <!-- SortingDemos handles the logic and passes functions correctly -->
+            <SortingDemos client:load />
+        </main>
+    </div>
+</SiteLayout>
+
+<style>
+    .visualizer-container {
+        margin-top: 2rem;
+        width: 100%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>

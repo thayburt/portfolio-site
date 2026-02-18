@@ -1,6 +1,57 @@
 <span class="keyword">
     <span class="keyword-display"><slot name="display">{Astro.props.text}</slot></span>
     <span class="popup">
-        <slot />
+        (<slot />)
     </span>
 </span>
+
+<style>
+    .keyword {
+        position: relative;
+        display: inline-block;
+        cursor: help;
+    }
+
+    .keyword-display {
+        color: var(--primary-accent);
+        font-weight: bold;
+    }
+
+    .keyword .popup {
+        visibility: hidden;
+        opacity: 0;
+        width: max-content;
+        max-width: 40rem;
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+        padding: 10px;
+        border: 1px solid #444;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        transition: opacity 0.2s ease-in-out;
+        pointer-events: none;
+    }
+
+    .keyword .popup::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -10px;
+        width: 10px;
+        background: transparent;
+    }
+
+    .keyword:hover .popup {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .keyword:hover .keyword-display {
+        color: var(--primary-accent-hover);
+    }
+</style>
