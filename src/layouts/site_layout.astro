@@ -1,6 +1,6 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import '../styles/global.css';
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
 const { title, description } = Astro.props;
 ---
 
@@ -16,6 +16,8 @@ const { title, description } = Astro.props;
   </head>
 
   <body>
-    <div class="centered main-page"><slot /></div>
+    <div class="container parchment">
+      <slot />
+    </div>
   </body>
 </html>

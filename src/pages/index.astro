@@ -1,6 +1,7 @@
 ---
 import Keyword from "@/components/keyword.astro";
 import SiteLayout from "@/layouts/site_layout.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <SiteLayout
@@ -15,13 +16,112 @@ import SiteLayout from "@/layouts/site_layout.astro";
     <p>A Fanshawe College graduate looking to start my career.</p>
     <div>Ontario, Canada</div>
     <address>
-      <a href="https://github.com/N0tAI" target="_blank">Github</a>
-      <a href="https://linkedin.com/in/thayen/" target="_blank">LinkedIn</a>
-      <a href="mailto:me@thayen.dev" target="_blank">Email</a>
-      <a href="/resume.pdf" target="_blank">Resume</a>
+      <a
+        href="https://github.com/N0tAI"
+        title="GitHub"
+        aria-label="GitHub"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Keyword>
+          <Fragment slot="display"><Icon name="mdi:github" /></Fragment>
+          GitHub
+        </Keyword>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/thayen"
+        title="LinkedIn"
+        aria-label="LinkedIn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Keyword>
+          <Fragment slot="display"><Icon name="mdi:linkedin" /></Fragment>
+          LinkedIn
+        </Keyword>
+      </a>
+      <a
+        href="mailto:me@thayen.dev"
+        title="Email"
+        aria-label="Email"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Keyword>
+          <Fragment slot="display"><Icon name="mdi:email" /></Fragment>
+          Email
+        </Keyword>
+      </a>
+      <a
+        href="/resume.pdf"
+        title="Resume"
+        aria-label="Resume"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Keyword>
+          <Fragment slot="display"><Icon name="mdi:file-document" /></Fragment>
+          Resume
+        </Keyword>
+      </a>
     </address>
   </header>
-  <main class="page-content">
+  <main>
+    <section id="skills">
+      <h2>Skills</h2>
+      <article>
+        <ul>
+          <li>
+            <strong>Languages:</strong>
+            <Keyword>
+              <Fragment slot="display">C#</Fragment>
+              ASP.NET Programming
+            </Keyword>,
+            <Keyword>
+              <Fragment slot="display">Python</Fragment>
+              Scripting & Automation
+            </Keyword>,
+            <Keyword>
+              <Fragment slot="display">Java</Fragment>
+              Object Oriented Programming
+            </Keyword>,
+            <Keyword>
+              <Fragment slot="display">C++</Fragment>
+              Object Oriented Programming
+            </Keyword>,
+            <Keyword>
+              <Fragment slot="display">C</Fragment>
+              Operating System Fundamentals
+            </Keyword>,
+            <Keyword>
+              <Fragment slot="display">JavaScript/Typescript</Fragment>
+              Full Stack Web Development
+            </Keyword>,
+            <Keyword>
+              <Fragment slot="display">COBOL</Fragment>
+              System Z Programming
+            </Keyword>,
+            <Keyword>
+              <Fragment slot="display">Clojure</Fragment>
+              Powernoodle Co-op
+            </Keyword>,
+            <Keyword>
+              <Fragment slot="display">PHP</Fragment>
+              Secure Computing & Web Security
+            </Keyword>
+          </li>
+          <li>
+            <strong>Web:</strong> ASP.NET Core, Angular, Vue, React
+          </li>
+          <li>
+            <strong>Data:</strong> PostgreSQL, MongoDB, SQL Server, MySQL, Kafka
+          </li>
+          <li>
+            <strong>Concepts:</strong> Object-oriented development, Android, Machine Learning, GenAI, Agile
+          </li>
+        </ul>
+      </article>
+    </section>
     <section id="experience">
       <h2>Experience</h2>
       <article>
@@ -32,7 +132,14 @@ import SiteLayout from "@/layouts/site_layout.astro";
           <time datetime="P4M">Jan 2023 to Apr 2023</time>
         </Keyword>
         <p>At <strong>Carfax Canada</strong></p>
-        <ul></ul>
+        <ul>
+          <li>Identified an <strong>access control bypass</strong> for licensed assets requiring EULA acceptance</li>
+          <li>Worked with development to implement <strong>server-side validation</strong></li>
+          <li>Identified and flagged software flaws and vulnerabilities</li>
+          <li>Collaborated on establishing time estimations for client requests</li>
+          <li>Wrote <strong>detailed reports</strong> on testing, problems, and reproduction</li>
+          <li>Participated in an <strong>Agile Development</strong> cycle</li>
+        </ul>
       </article>
       <article>
         <Keyword>
@@ -42,6 +149,26 @@ import SiteLayout from "@/layouts/site_layout.astro";
           <time datetime="P6M">Jan 2019 to Jun 2019</time>
         </Keyword>
         <p>At <strong>Powernoodle</strong></p>
+        <ul>
+          <li>Learned <strong>Clojure</strong> in 8 weeks to build a live data analysis web app</li>
+          <li>Integrated application with <strong>Kafka</strong> backend</li>
+          <li>Improved product quality through weekly <strong>code reviews</strong></li>
+          <li>Engaged in weekly <strong>Quality Assurance</strong> sessions to identify bugs</li>
+          <li>Participated in an <strong>Agile Development</strong> cycle</li>
+        </ul>
+      </article>
+      <article>
+        <Keyword>
+          <Fragment slot="display">
+            <h3>Team Member</h3>
+          </Fragment>
+          <time datetime="2023-08-01">Aug 2023 to Current</time>
+        </Keyword>
+        <p>At <strong>Tim Hortons</strong></p>
+        <ul>
+          <li>Excelled in a <strong>fast-paced environment</strong>, maintaining high service standards under pressure</li>
+          <li>Collaborated with the team to ensure safety compliance and operational efficiency</li>
+        </ul>
       </article>
     </section>
     <section id="education">
@@ -49,17 +176,7 @@ import SiteLayout from "@/layouts/site_layout.astro";
       <article>
         <h3>Fanshawe College</h3>
         <p>
-          <Keyword>
-            <Fragment slot="display">
-              <strong>Computer Programming and Analysis</strong>
-            </Fragment>
-            <strong>C#</strong>,
-            <strong>Python</strong>,
-            <strong>Java</strong>,
-            <strong>C</strong>,
-            <strong>C++</strong>,
-            <strong>JavaScript/Typescript</strong>, and <strong>PHP</strong>
-          </Keyword>
+          <strong>Computer Programming and Analysis</strong> (Advanced Diploma)
         </p>
         <p>
           Graduated: <strong
@@ -73,33 +190,62 @@ import SiteLayout from "@/layouts/site_layout.astro";
           >
         </p>
         <ul>
-          <li>Awarded <strong>Dean's Honour Roll</strong></li>
+          <li>Awarded the <strong>Dean's Honour Roll</strong></li>
+          <li>
+            Specialized in
+            <Keyword>
+              <Fragment slot="display"><strong>Security</strong></Fragment>
+              A+ in Secure Computing
+            </Keyword>,
+            <Keyword>
+              <Fragment slot="display"><strong>Architecture</strong></Fragment>
+              A+ in Software Design Patterns
+            </Keyword>, and
+            <Keyword>
+              <Fragment slot="display"><strong>Project Management</strong></Fragment>
+              A+ in Managing Software Projects
+            </Keyword>
+          </li>
+          <li>Object-oriented development</li>
+          <li>Full-stack web development</li>
+          <li>Mobile development with <strong>Android</strong></li>
+          <li>Database development</li>
+          <li>Exposure to <strong>Machine Learning</strong> and <strong>GenAI</strong></li>
+        </ul>
+      </article>
+      <article>
+        <h3>Stratford Central Secondary School</h3>
+        <p>Graduated: <strong><time datetime="2020-06-20">June 2020</time></strong></p>
+        <ul>
+          <li>Project owner and team leader in <strong>Computer Science</strong> group projects</li>
+          <li>Assisted students with Computer Science projects</li>
         </ul>
       </article>
     </section>
+    <!--
     <section id="projects">
       <h2>Projects</h2>
     </section>
+    -->
   </main>
 </SiteLayout>
 
 <style>
-  .page-content {
-    background-color: var(--bg-color);
-    position: relative;
-    z-index: 1;
-  }
-
-  .content {
-    margin-top: 2rem;
-  }
-
   ul {
     list-style-type: lower-roman;
     list-style-position: inside;
   }
-
   li::marker {
     color: var(--primary-accent);
+  }
+  address a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+  }
+  address a svg {
+    font-size: 1.5rem;
   }
 </style>

@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Spectral:wght@400;600&display=swap");
 
 :root {
-  --body-bg: #09080d;
-  --page-bg: #17161d;
-  --text-color: #e0d8c8;
-  --primary-accent: #c5a059;
+  --body-bg: #1a1410;      /* Deep Leather/Shadow */
+  --page-bg: #f4e4bc;      /* Aged Parchment */
+  --text-color: #2b2b2b;   /* Ink */
+  --primary-accent: #c5a059; /* Gold Leaf */
   --primary-accent-hover: #d4af37;
-  --emphasis-accent: #8a3324;
-  --emphasis-accent-hover: #747bff;
-  --border-color: #333;
+  --emphasis-accent: #8a3324; /* Ribbon Crimson */
+  --emphasis-accent-hover: #a03d2b;
+  --border-color: #d4c4a8;    /* Paper shadow */
 
   --max-width: 80em;
   --header-height: 70px;
@@ -16,17 +16,16 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-color: #f9f9f9;
-    --text-color: #213547;
-    --accent-color: #535bf2;
-    --accent-hover: #4c52f6;
-    --secondary-bg: #ffffff;
-    --border-color: #e0e0e0;
+    --bg-color: #f4e4bc;
+    --text-color: #2b2b2b;
+    --accent-color: #8a3324;
+    --accent-hover: #a03d2b;
+    --secondary-bg: #e8d5a7;
+    --border-color: #d4c4a8;
   }
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -38,6 +37,20 @@ body {
   font-size: large;
   min-height: 100vh;
   font-family: "Spectral", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  background-color: var(--page-bg);
+  width: 85vw;
+  max-width: var(--max-width);
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -49,47 +62,6 @@ a {
 a:hover {
   color: var(--primary-accent-hover);
   text-decoration: underline;
-}
-
-.centered {
-  margin: 0 auto;
-  padding: 2rem 0;
-  flex: 1;
-}
-
-@keyframes arcane-pulse {
-    0% { box-shadow: 0 0 0 1px rgba(189,147,249,0.3), 0 0 15px rgba(189,147,249,0.4); }
-    50% { box-shadow: 0 0 0 1px rgba(189,147,249,0.5), 0 0 25px rgba(189,147,249,0.6); }
-    100% { box-shadow: 0 0 0 1px rgba(189,147,249,0.3), 0 0 15px rgba(189,147,249,0.4); }
-}
-
-.main-page {
-  padding: 1rem;
-  background-color: var(--page-bg);
-  max-width: var(--max-width);
-  border: 1px solid rgba(147, 112, 219, 0.2);
-  animation: arcane-pulse 15s infinite ease-in-out;
-}
-
-.center-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-footer {
-  padding: 2rem;
-  text-align: center;
-  border-top: 1px solid var(--border-color);
-}
-
-.nodecor {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
 }
 
 h1, h2, h3 {
@@ -111,95 +83,6 @@ h3 { font-size: 1.5rem; margin-top: 1.5rem; }
 
 p { margin-bottom: 1rem; }
 
-.tag {
-  display: inline-block;
-  background-color: var(--accent-color);
-  color: white;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.btn {
-  display: inline-block;
-  background-color: var(--accent-color);
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  font-weight: bold;
-  margin-top: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  border: none;
-}
-
-.btn:hover {
-  background-color: var(--accent-hover);
-  text-decoration: none;
-  color: white;
-}
-
-/* Sticky Tabs */
-.sticky-tabs {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: var(--secondary-bg);
-  border-bottom: 1px solid var(--border-color);
-  padding-top: 0.5rem;
-}
-
-.tab-bar {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: flex-end;
-}
-
-.tabs-container {
-  display: flex;
-  gap: 4px;
-  width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.tabs-container::-webkit-scrollbar { display: none; }
-
-.tab-item {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.6rem 1.5rem;
-  background-color: transparent;
-  color: #999;
-  text-decoration: none;
-  font-size: 0.95rem;
-  border-radius: 6px 6px 0 0;
-  border: 1px solid transparent;
-  border-bottom: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  position: relative;
-  bottom: -1px;
-}
-
-.tab-item:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--text-color);
-}
-
-.tab-item.active {
-  background-color: var(--bg-color);
-  color: var(--accent-color);
-  border-color: var(--border-color);
-  border-top: 2px solid var(--accent-color);
-  font-weight: 500;
-  z-index: 2;
-}
 
 /* Torch Flicker Animation */
 @keyframes torch-flicker {
