@@ -12,7 +12,7 @@
   --emphasis-accent-hover: #c23523;
   --border-color: #cfae84; /* Matches the SVG's golden-amber color burn */
 
-  --max-width: 80em;
+  --max-width: 50em;
   --header-height: 70px;
 }
 
@@ -56,6 +56,7 @@ body {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
   position: relative;
   z-index: 1;
+  overflow-x: clip;
 }
 
 a {
@@ -69,7 +70,9 @@ a:hover {
   text-decoration: underline;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1.2;
   margin-bottom: 1rem;
   font-family: "Cinzel", serif;
@@ -77,53 +80,86 @@ h1, h2, h3 {
   text-transform: capitalize;
 }
 
-h1 { font-size: 2.5rem; }
+h1 {
+  font-size: 2.5rem;
+}
 h2 {
   font-size: 2rem;
   margin-top: 2rem;
-  border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.5rem;
 }
-h3 { font-size: 1.5rem; margin-top: 1.5rem; }
-
-p { margin-bottom: 1rem; }
-
-
-/* Torch Flicker Animation */
-@keyframes torch-flicker {
-  0%   { opacity: 0.13; transform: scaleX(1); }
-  5%   { opacity: 0.20; transform: scaleX(1.02); }
-  10%  { opacity: 0.15; transform: scaleX(0.98); }
-  15%  { opacity: 0.23; transform: scaleX(1.01); }
-  20%  { opacity: 0.13; transform: scaleX(1); }
-  25%  { opacity: 0.17; transform: scaleX(0.99); }
-  30%  { opacity: 0.10; transform: scaleX(1); }
-  35%  { opacity: 0.19; transform: scaleX(1.03); }
-  40%  { opacity: 0.14; transform: scaleX(1); }
-  45%  { opacity: 0.17; transform: scaleX(1.01); }
-  50%  { opacity: 0.12; transform: scaleX(0.98); }
-  55%  { opacity: 0.21; transform: scaleX(1.02); }
-  60%  { opacity: 0.16; transform: scaleX(1); }
-  65%  { opacity: 0.19; transform: scaleX(1.01); }
-  70%  { opacity: 0.11; transform: scaleX(0.99); }
-  75%  { opacity: 0.20; transform: scaleX(1.02); }
-  80%  { opacity: 0.14; transform: scaleX(1); }
-  85%  { opacity: 0.17; transform: scaleX(1.01); }
-  90%  { opacity: 0.15; transform: scaleX(0.99); }
-  100% { opacity: 0.13; transform: scaleX(1); }
+h3 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
 }
 
-body::before, body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 300px;
-  z-index: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse at center, rgba(255, 140, 0, 0.8) 0%, transparent 50%);
-  animation: torch-flicker 15s infinite linear;
+p {
+  margin-bottom: 1rem;
 }
 
-body::before { left: -130px; }
-body::after { right: -130px; animation-delay: 0.15s; }
+@media (min-width: 925px) {
+  .container {
+    max-width: var(--max-width);
+    width: 85%;
+  }
+}
+
+@media (min-width: 1200px) {
+  @keyframes torch-flicker {
+    0%,
+    100% {
+      opacity: 0.13;
+      transform: scaleX(1);
+    }
+    15% {
+      opacity: 0.22;
+      transform: scaleX(1.02);
+    }
+    30% {
+      opacity: 0.1;
+      transform: scaleX(1);
+    }
+    45% {
+      opacity: 0.18;
+      transform: scaleX(0.98);
+    }
+    60% {
+      opacity: 0.21;
+      transform: scaleX(1.03);
+    }
+    75% {
+      opacity: 0.11;
+      transform: scaleX(0.99);
+    }
+    90% {
+      opacity: 0.16;
+      transform: scaleX(1.01);
+    }
+  }
+
+  /* Torch Flicker effect placement */
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 140, 0, 0.8) 0%,
+      transparent 50%
+    );
+    animation: torch-flicker 4s infinite linear;
+  }
+
+  body::before {
+    left: -130px;
+  }
+  body::after {
+    right: -130px;
+    animation-delay: 0.15s;
+  }
+}

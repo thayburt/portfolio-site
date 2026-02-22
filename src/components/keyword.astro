@@ -1,14 +1,16 @@
 <span class="keyword">
     <span class="keyword-display"><slot name="display">{Astro.props.text}</slot></span>
-    <span class="popup">
-        (<slot />)
+    <span class="popup-anchor">
+        <span class="popup">
+            (<slot />)
+        </span>
     </span>
 </span>
 
 <style>
     .keyword {
-        position: relative;
-        display: inline-block;
+        position: static;
+        display: inline;
         cursor: help;
     }
 
@@ -17,32 +19,37 @@
         font-weight: bold;
     }
 
+    /*
+     * The anchor is position: absolute, resolving to .container (which has position: relative).
+     * It stretches the full width of the container and has zero height,
+     * sitting at the vertical position of the keyword in the text flow.
+     */
+    .keyword .popup-anchor {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 0;
+        z-index: 100;
+        pointer-events: none;
+    }
+
+    /*
+     * The popup is positioned relative within the full-width anchor,
+     * so it's naturally constrained to the container's width.
+     */
     .keyword .popup {
         visibility: hidden;
         opacity: 0;
         width: max-content;
-        max-width: 40rem;
+        max-width: 100%;
         background-color: #1a1a1a;
         color: #e0e0e0;
-        padding: 10px;
+        padding: 0.5rem;
         border: 1px solid #444;
-        position: absolute;
-        top: 80%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
+        position: relative;
+        display: block;
         transition: opacity 0.2s ease-in-out;
         pointer-events: none;
-    }
-
-    .keyword .popup::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: -10px;
-        width: 10px;
-        background: transparent;
     }
 
     .keyword:hover .popup {
