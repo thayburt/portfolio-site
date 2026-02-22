@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-`thayen.dev` is a personal portfolio website for Thayen Burtenshaw, a Software Engineer. The site serves as a digital resume and a showcase for technical projects, including an interactive algorithm visualizer.
+`thayen.dev` is a personal portfolio website for Thayen Burtenshaw, a Software Engineer. The site is designed as a CRPG-inspired digital scroll (or parchment) that serves as a resume and project showcase.
 
 ### Tech Stack
 
@@ -14,8 +14,8 @@
 
 ### Architecture
 
-- **Static First:** The site is designed for performance, with a focus on pre-rendering.
-- **Progressive Enhancement:** The main resume page (`index.astro`) is required to be fully functional without JavaScript.
+- **Static First:** The site is designed for performance and readability, with a focus on pre-rendering.
+- **Simplicity:** Prioritize standard browser behavior (scrolling) over complex custom interactions to ensure the resume is easily readable by recruiters.
 
 ## Building and Running
 
@@ -31,20 +31,27 @@
 
 ### Aesthetic & Design
 
-- **Inspiration:** Minimalist sites like [gnu.org](https://www.gnu.org/).
-- **Navigation:** Single-page-application (SPA) feel for seamless transitions between pages.
+- **Theme:** Computer Role-Playing Game (CRPG) / Fantasy Scroll. The interface mimics a physical scroll or parchment found in a fantasy setting.
+- **Visual Metaphor:**
+    - **Continuous Scroll:** The content flows vertically as a single, continuous document, resembling a long scroll.
+    - **Unrolling Effect:** The bottom of the viewport should feature a visual "roll" or edge that stays fixed or animates to simulate the scroll unrolling as the user scrolls down, enhancing the physical metaphor (CSS-only implementation preferred).
+    - **Parchment Texture:** The background uses parchment or paper textures to fit the theme.
+    - **Ornate Borders:** Sections may be separated by stylized dividers or borders typical of CRPG UI.
+- **Navigation & Interaction:**
+    - **Standard Scrolling:** Uses native vertical scrolling for maximum accessibility and ease of use.
+    - **Typography:** Fonts should be readable but thematic (e.g., a clean serif that looks like hand-written text or print).
 
 ### Style Management
 
-- **Global Styles:** Located in `src/styles/global.css`. These include theme variables, resets, and common typography.
-- **Page-Specific Styles:** Defined within `<style>` blocks inside `.astro` files in `src/pages/`.
+- **Global Styles:** Located in `src/styles/global.css`. Responsible for the scroll container, background atmosphere, and typography resetting.
+- **Page-Specific Styles:** Defined within `<style>` blocks inside `.astro` files.
 - **Component Styles:** Defined within `<style>` blocks in `.astro` component files.
 - **Assets:** All images should be placed in `public/images/`.
 
 ### Coding Standards
 
 - **Imports:** Use the `@/` alias for cleaner paths (e.g., `import Keyword from "@/components/keyword.astro"`).
-- **TypeScript:** Strict typing is used and required for all typescript codee.
+- **TypeScript:** Strict typing is used and required for all typescript code.
 
 ## Key Files
 
@@ -53,4 +60,3 @@
 - `AGENTS.md`: High-level project goals, rules, and design philosophy.
 - `src/layouts/site_layout.astro`: The primary layout used across all pages.
 - `src/styles/global.css`: Core theme and CSS variables.
-
