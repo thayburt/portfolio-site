@@ -233,17 +233,33 @@ import { Icon } from "astro-icon/components";
 <style>
   ul {
     list-style-type: lower-roman;
-    list-style-position: inside;
+    list-style-position: outside;
+    margin-left: 1.5rem;
+  }
+  li {
+    margin-bottom: 0.5rem;
   }
   li::marker {
     color: var(--primary-accent);
+  }
+  address {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-style: normal;
   }
   address a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+  address a:hover {
+    background-color: rgba(179, 130, 53, 0.1);
+    text-decoration: none;
   }
   address a svg {
     font-size: 1.5rem;

@@ -98,11 +98,23 @@
         }
     }
     
-    // Initialize event listeners for all keywords
+    // Initialize event listeners and perform initial clamp
     function initKeywords() {
-        document.querySelectorAll<HTMLElement>('[data-keyword]').forEach(keyword => {
+        const keywords = document.querySelectorAll<HTMLElement>('[data-keyword]');
+        
+        keywords.forEach(keyword => {
+            // Initial clamp to prevent layout overflow
+            clampPopupPosition(keyword);
+            
+            // Re-clamp on interaction in case of dynamic layout changes
             keyword.addEventListener('mouseenter', () => clampPopupPosition(keyword));
+            keyword.addEventListener('touchstart', () => clampPopupPosition(keyword), { passive: true });
         });
+
+        // Re-clamp all on window resize
+        window.addEventListener('resize', () => {
+            keywords.forEach(keyword => clampPopupPosition(keyword));
+        }, { passive: true });
     }
     
     // Initial load

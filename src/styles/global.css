@@ -27,8 +27,16 @@
   pointer-events: none;
   z-index: 10;
   box-shadow:
-    inset 0 0 150px 40px rgba(60, 40, 20, 0.7),
+    inset 0 0 60px 15px rgba(60, 40, 20, 0.6),
     inset 0 0 20px 5px rgba(40, 20, 10, 0.5);
+}
+
+@media (min-width: 768px) {
+  .parchment::after {
+    box-shadow:
+      inset 0 0 150px 40px rgba(60, 40, 20, 0.7),
+      inset 0 0 20px 5px rgba(40, 20, 10, 0.5);
+  }
 }
 
 * {
@@ -45,11 +53,17 @@
   height: 0;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   background-color: var(--body-bg);
   color: var(--text-color);
   line-height: 1.6;
-  font-size: large;
+  font-size: 1rem;
   min-height: 100vh;
   font-family: "Spectral", serif;
   display: flex;
@@ -57,13 +71,25 @@ body {
   align-items: center;
 }
 
+@media (min-width: 768px) {
+  body {
+    font-size: 1.125rem;
+  }
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 2.5rem;
+  padding: 1.5rem 1rem;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 600px) {
+  .container {
+    padding: 2rem 2.5rem;
+  }
 }
 
 a {
@@ -88,22 +114,35 @@ h3 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin-top: 2rem;
   padding-bottom: 0.5rem;
 }
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
 }
 
 p {
   margin-bottom: 1rem;
 }
 
+/* End of mobile view */
 @media (min-width: 925px) {
   .container {
     max-width: var(--max-width);
