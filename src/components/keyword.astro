@@ -61,4 +61,24 @@
     .keyword:hover .keyword-display {
         color: var(--primary-accent-hover);
     }
+
+    /* Desktop: popup centered below keyword instead of left-aligned to container */
+    @media (min-width: 1000px) {
+        .keyword {
+            position: relative;
+        }
+
+        .keyword .popup-anchor {
+            left: 50%;
+            right: auto;
+            top: 100%;
+            height: auto;
+            transform: translateX(-50%);
+            width: max-content;
+        }
+
+        .keyword .popup {
+            max-width: none;
+        }
+    }
 </style>
