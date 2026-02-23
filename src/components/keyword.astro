@@ -1,4 +1,4 @@
-<span class="keyword">
+<span class="keyword" data-keyword>
     <span class="keyword-display"><slot name="display">{Astro.props.text}</slot></span>
     <span class="popup-anchor">
         <span class="popup">
@@ -9,8 +9,8 @@
 
 <style>
     .keyword {
-        position: static;
-        display: inline;
+        position: relative;
+        display: inline-block;
         cursor: help;
     }
 
@@ -19,29 +19,23 @@
         font-weight: bold;
     }
 
-    /*
-     * The anchor is position: absolute, resolving to .container (which has position: relative).
-     * It stretches the full width of the container and has zero height,
-     * sitting at the vertical position of the keyword in the text flow.
-     */
     .keyword .popup-anchor {
         position: absolute;
-        left: 0;
-        right: 0;
-        height: 0;
+        left: 50%;
+        right: auto;
+        top: 100%;
+        height: auto;
         z-index: 100;
         pointer-events: none;
+        transform: translateX(-50%);
+        width: max-content;
     }
 
-    /*
-     * The popup is positioned relative within the full-width anchor,
-     * so it's naturally constrained to the container's width.
-     */
     .keyword .popup {
         visibility: hidden;
         opacity: 0;
         width: max-content;
-        max-width: 100%;
+        max-width: calc(100vw - 2rem); /* CSS-only safety constraint */
         background-color: #1a1a1a;
         color: #e0e0e0;
         padding: 0.5rem;
@@ -62,23 +56,58 @@
         color: var(--primary-accent-hover);
     }
 
-    /* Desktop: popup centered below keyword instead of left-aligned to container */
+    /* Desktop: remove max-width constraint */
     @media (min-width: 1000px) {
-        .keyword {
-            position: relative;
-        }
-
-        .keyword .popup-anchor {
-            left: 50%;
-            right: auto;
-            top: 100%;
-            height: auto;
-            transform: translateX(-50%);
-            width: max-content;
-        }
-
         .keyword .popup {
             max-width: none;
         }
     }
 </style>
+
+<script>
+    // Progressive enhancement: clamp popup position to container bounds
+    function clampPopupPosition(keyword: HTMLElement) {
+        const popup = keyword.querySelector('.popup') as HTMLElement | null;
+        const popupAnchor = keyword.querySelector('.popup-anchor') as HTMLElement | null;
+        const container = keyword.closest('.container') as HTMLElement | null;
+        
+        if (!popup || !popupAnchor || !container) return;
+        
+        // Remove CSS max-width constraint for JS-enabled mode
+        popup.style.maxWidth = 'none';
+        
+        // Reset to centered position
+        popupAnchor.style.left = '50%';
+        popupAnchor.style.right = 'auto';
+        popupAnchor.style.transform = 'translateX(-50%)';
+        
+        // Get positions after reset
+        const popupRect = popup.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        
+        // Check overflow and clamp position
+        if (popupRect.left < containerRect.left) {
+            // Overflow on left - align to left edge
+            popupAnchor.style.left = '0';
+            popupAnchor.style.transform = 'none';
+        } else if (popupRect.right > containerRect.right) {
+            // Overflow on right - align to right edge
+            popupAnchor.style.left = 'auto';
+            popupAnchor.style.right = '0';
+            popupAnchor.style.transform = 'none';
+        }
+    }
+    
+    // Initialize event listeners for all keywords
+    function initKeywords() {
+        document.querySelectorAll<HTMLElement>('[data-keyword]').forEach(keyword => {
+            keyword.addEventListener('mouseenter', () => clampPopupPosition(keyword));
+        });
+    }
+    
+    // Initial load
+    initKeywords();
+    
+    // Re-initialize after view transitions
+    document.addEventListener('astro:page-load', initKeywords);
+</script>
