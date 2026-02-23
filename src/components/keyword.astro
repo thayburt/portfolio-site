@@ -73,28 +73,31 @@
         
         if (!popup || !popupAnchor || !container) return;
         
-        // Remove CSS max-width constraint for JS-enabled mode
-        popup.style.maxWidth = 'none';
+        const containerRect = container.getBoundingClientRect();
+        const safetyMargin = 16; // 1rem safety margin from container edges
         
-        // Reset to centered position
+        // Ensure popup doesn't exceed container width
+        popup.style.maxWidth = `${containerRect.width - (safetyMargin * 2)}px`;
+        
+        // Reset to centered position to measure
         popupAnchor.style.left = '50%';
         popupAnchor.style.right = 'auto';
         popupAnchor.style.transform = 'translateX(-50%)';
         
         // Get positions after reset
         const popupRect = popup.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
         
-        // Check overflow and clamp position
-        if (popupRect.left < containerRect.left) {
-            // Overflow on left - align to left edge
-            popupAnchor.style.left = '0';
-            popupAnchor.style.transform = 'none';
-        } else if (popupRect.right > containerRect.right) {
-            // Overflow on right - align to right edge
-            popupAnchor.style.left = 'auto';
-            popupAnchor.style.right = '0';
-            popupAnchor.style.transform = 'none';
+        // Calculate necessary shift to stay within container bounds
+        let shift = 0;
+        if (popupRect.left < containerRect.left + safetyMargin) {
+            shift = (containerRect.left + safetyMargin) - popupRect.left;
+        } else if (popupRect.right > containerRect.right - safetyMargin) {
+            shift = (containerRect.right - safetyMargin) - popupRect.right;
+        }
+        
+        // Apply shift if necessary, maintaining centering where possible
+        if (shift !== 0) {
+            popupAnchor.style.transform = `translateX(calc(-50% + ${shift}px))`;
         }
     }
     
