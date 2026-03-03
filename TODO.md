@@ -7,7 +7,7 @@
   - [x] Tab Indexing (Logical flow & single-tab for components)
   - [ ] Color Contrast (Check gold-on-parchment against WCAG AA for 4.5:1 ratio)
   - [ ] Aria Labels (Ensure icons and interactive elements are described)
-  - [ ] Semantic HTML Audit (Verify proper heading hierarchy H1->H3)
+  - [x] Semantic HTML Audit (Verify proper heading hierarchy H1->H3)
   - [x] Motion Safety (Respect `prefers-reduced-motion` for torch flicker effect)
   - [ ] Screen Reader Walkthrough (Verify logical reading order of Keywords)
   - [ ] Touch Targets (Ensure social icons are at least 44x44px for mobile)
