@@ -18,7 +18,7 @@
 }
 
 .parchment {
-  background: var(--page-bg) url("/images/parchment_surface.svg") repeat top left;
+  background: var(--page-bg) url("/images/parchment_texture.svg") repeat top left;
 }
 
 .parchment::after {
