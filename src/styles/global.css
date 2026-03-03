@@ -156,7 +156,7 @@ p {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
   @keyframes torch-flicker {
     0%,
     100% {
