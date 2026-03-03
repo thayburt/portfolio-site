@@ -62,9 +62,6 @@ body {
 
 body {
   background-color: var(--body-bg);
-  background-image: url("/images/body_texture.svg?v=12");
-  background-repeat: repeat;
-  background-position: top left;
 
   color: var(--text-color);
   line-height: 1.6;
@@ -157,5 +154,10 @@ p {
   .container {
     max-width: var(--max-width);
     width: 85%;
+  }
+  body {
+    background-image: url("/images/body_texture.svg");
+    background-repeat: repeat;
+    background-position: top left;
   }
 }
