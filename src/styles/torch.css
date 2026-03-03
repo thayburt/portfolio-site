@@ -90,8 +90,8 @@
   }
 
   :root {
-    --torch-offset: -850px;
-    --torch-width: 1400px;
+    --torch-offset: -650px;
+    --torch-width: 1000px;
     --torch-stretch-x: 50%;
     --torch-stretch-y: 250%;
 
@@ -107,7 +107,6 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    height: 100%;
     width: var(--torch-width);
     z-index: 0;
     pointer-events: none;
