@@ -10,7 +10,7 @@
   - [x] Semantic HTML Audit (Verify proper heading hierarchy H1->H3)
   - [x] Motion Safety (Respect `prefers-reduced-motion` for torch flicker effect)
   - [ ] Screen Reader Walkthrough (Verify logical reading order of Keywords)
-  - [ ] Touch Targets (Ensure social icons are at least 44x44px for mobile)
+  - [x] Touch Targets (Ensure social icons are at least 44x44px for mobile)
   - [ ] Alt Text (Verify decorative vs informative icons/images)
 - [ ] Keywords have improved semantics
   - Leverage the details element
@@ -22,6 +22,7 @@
   - [ ] Add subtle ink splatter effects
   - [ ] Add subtle parchment texture
   - [ ] Add subtle page curl effect
+  - [ ] Clip path to add damage to parchment edges?
 - [ ] Print media effect
 - [ ] Minimize javascript and css
 - [ ] Add recording of name
