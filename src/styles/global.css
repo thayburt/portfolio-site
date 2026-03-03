@@ -18,7 +18,7 @@
 }
 
 .parchment {
-  background: var(--page-bg) url("/images/parchment.svg") repeat top left;
+  background: var(--page-bg) url("/images/parchment_surface.svg") repeat top left;
 }
 
 .parchment::after {
@@ -149,7 +149,6 @@ p {
   margin-bottom: 1rem;
 }
 
-/* End of mobile view */
 @media (min-width: 925px) {
   .container {
     max-width: var(--max-width);
