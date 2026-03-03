@@ -2,8 +2,8 @@
 @import "./torch.css";
 
 :root {
-  --body-bg: #0f0f0f; /* Abyssal Black */
-  --page-bg: #f0e9d1; /* Parchment Color */
+  --body-bg: #222224; /* Polished Basalt */
+  --page-bg: #f0e9d1; /* Parchment */
 
   /* Text & Accents */
   --text-color: #302b27; /* Iron Gall Ink (slightly warm dark grey, easier on eyes than #000) */
@@ -62,7 +62,7 @@ body {
 
 body {
   background-color: var(--body-bg);
-  background-image: url("/images/body_texture.svg?v=3");
+  background-image: url("/images/body_texture.svg?v=12");
   background-repeat: repeat;
   background-position: top left;
 
