@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <defs>
+    <!-- 
+      GRIT FILTER
+      Generates fractal noise mapped to black with an alpha channel.
+      This gives the stone that early 2000s rough, uneven UI texture.
+    -->
+    <filter id="stoneGrit" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" result="noise"/>
+      <feColorMatrix type="matrix" values="
+        0 0 0 0 0
+        0 0 0 0 0
+        0 0 0 0 0
+        0 0 0 0.5 0" in="noise" />
+    </filter>
+
+    <!-- 
+      REUSABLE BRICK TEMPLATE (Widened for an 80x80 square layout)
+      Uses overlapping semi-transparent paths to create a chunky, isometric-style UI bevel.
+    -->
+    <g id="brick">
+      <!-- Brick Face -->
+      <rect x="0" y="0" width="76" height="36" fill="rgba(255, 255, 255, 0.15)" />
+      
+      <!-- Inner Face -->
+      <rect x="2" y="2" width="72" height="32" fill="rgba(255, 255, 255, 0.05)" />
+      
+      <!-- Bevel Highlight (Top & Left edges) -->
+      <path d="M 0,36 L 0,0 L 76,0 L 72,4 L 4,4 L 4,32 Z" fill="rgba(255, 255, 255, 0.25)" />
+      
+      <!-- Bevel Shadow (Bottom & Right edges) -->
+      <path d="M 0,36 L 76,36 L 76,0 L 72,4 L 72,32 L 4,32 Z" fill="rgba(0, 0, 0, 0.6)" />
+      
+      <!-- Sharp outer stroke for crisp UI boundaries -->
+      <rect x="0" y="0" width="76" height="36" fill="none" stroke="rgba(0, 0, 0, 0.8)" stroke-width="1" />
+    </g>
+  </defs>
+
+  <!-- Deep Mortar Base -->
+  <rect width="80" height="80" fill="rgba(0, 0, 0, 0.65)" />
+
+  <!-- BRICK PLACEMENT (Seamless 80x80 Running Bond Grid) -->
+  
+  <!-- Row 1 -->
+  <use href="#brick" x="2" y="2" />
+
+  <!-- Row 2 (Staggered perfectly by exactly half the brick footprint) -->
+  <use href="#brick" x="-38" y="42" />
+  <use href="#brick" x="42" y="42" />
+
+  <!-- Overlay the grit texture over the entire wall -->
+  <rect width="80" height="80" filter="url(#stoneGrit)" style="pointer-events:none;" />
+</svg>

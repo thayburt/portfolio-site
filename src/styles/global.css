@@ -2,8 +2,8 @@
 @import "./torch.css";
 
 :root {
-  --body-bg: #0d1114; /* Desk Color */
-  --page-bg: #f0e9d1; /* Matches our specific SVG base exactly */
+  --body-bg: #0f0f0f; /* Abyssal Black */
+  --page-bg: #f0e9d1; /* Parchment Color */
 
   /* Text & Accents */
   --text-color: #302b27; /* Iron Gall Ink (slightly warm dark grey, easier on eyes than #000) */
@@ -62,6 +62,10 @@ body {
 
 body {
   background-color: var(--body-bg);
+  background-image: url("/images/body_texture.svg?v=3");
+  background-repeat: repeat;
+  background-position: top left;
+
   color: var(--text-color);
   line-height: 1.6;
   font-size: 1rem;
