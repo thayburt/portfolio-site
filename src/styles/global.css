@@ -2,7 +2,7 @@
 @import "./torch.css";
 
 :root {
-  --body-bg: #3b2313; /* Desk Color */
+  --body-bg: #0d1114; /* Desk Color */
   --page-bg: #f0e9d1; /* Matches our specific SVG base exactly */
 
   /* Text & Accents */
