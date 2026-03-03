@@ -160,33 +160,114 @@ p {
   @keyframes torch-flicker {
     0%,
     100% {
-      opacity: 0.13;
-      transform: scaleX(1);
+      opacity: 0.8;
+      transform: scale(1) translate(0, 0);
     }
-    15% {
-      opacity: 0.22;
-      transform: scaleX(1.02);
+    4% {
+      opacity: 0.95;
+      transform: scale(1.05) translate(2px, -2px);
     }
-    30% {
-      opacity: 0.1;
-      transform: scaleX(1);
+    8% {
+      opacity: 0.7;
+      transform: scale(0.95) translate(-1px, 2px);
     }
-    45% {
-      opacity: 0.18;
-      transform: scaleX(0.98);
+    12% {
+      opacity: 0.9;
+      transform: scale(1.02) translate(3px, -1px);
+    }
+    16% {
+      opacity: 0.6;
+      transform: scale(0.98) translate(-2px, 1px);
+    }
+    20% {
+      opacity: 0.95;
+      transform: scale(1.04) translate(1px, -3px);
+    }
+    24% {
+      opacity: 0.75;
+      transform: scale(0.96) translate(-2px, 2px);
+    }
+    28% {
+      opacity: 1;
+      transform: scale(1.03) translate(2px, 0px);
+    }
+    32% {
+      opacity: 0.65;
+      transform: scale(0.94) translate(-1px, 3px);
+    }
+    36% {
+      opacity: 0.85;
+      transform: scale(1.01) translate(1px, -1px);
+    }
+    40% {
+      opacity: 0.75;
+      transform: scale(0.97) translate(-2px, 2px);
+    }
+    44% {
+      opacity: 0.95;
+      transform: scale(1.04) translate(2px, -1px);
+    }
+    48% {
+      opacity: 0.6;
+      transform: scale(0.95) translate(-1px, 3px);
+    }
+    52% {
+      opacity: 1;
+      transform: scale(1.05) translate(3px, -2px);
+    }
+    56% {
+      opacity: 0.8;
+      transform: scale(0.99) translate(-2px, 0px);
     }
     60% {
-      opacity: 0.21;
-      transform: scaleX(1.03);
+      opacity: 0.9;
+      transform: scale(1.02) translate(1px, 2px);
     }
-    75% {
-      opacity: 0.11;
-      transform: scaleX(0.99);
+    64% {
+      opacity: 0.65;
+      transform: scale(0.94) translate(-3px, 1px);
     }
-    90% {
-      opacity: 0.16;
-      transform: scaleX(1.01);
+    68% {
+      opacity: 0.95;
+      transform: scale(1.03) translate(2px, -3px);
     }
+    72% {
+      opacity: 0.7;
+      transform: scale(0.96) translate(0px, 2px);
+    }
+    76% {
+      opacity: 0.85;
+      transform: scale(1.01) translate(-2px, -1px);
+    }
+    80% {
+      opacity: 1;
+      transform: scale(1.04) translate(3px, 1px);
+    }
+    84% {
+      opacity: 0.6;
+      transform: scale(0.95) translate(-1px, 3px);
+    }
+    88% {
+      opacity: 0.9;
+      transform: scale(1.02) translate(2px, -2px);
+    }
+    92% {
+      opacity: 0.75;
+      transform: scale(0.97) translate(-2px, 1px);
+    }
+    96% {
+      opacity: 0.95;
+      transform: scale(1.03) translate(1px, -1px);
+    }
+  }
+
+  :root {
+    --torch-offset: -350px;
+    --torch-width: 600px;
+
+    --torch-core-color: rgba(255, 230, 150, 0.45); /* Hot yellow/white center */
+    --torch-mid-color: rgba(255, 110, 0, 0.3); /* Main orange body */
+    --torch-edge-color: rgba(90, 15, 0, 0.15); /* Smoky dark red edge */
   }
 
   /* Torch Flicker effect placement */
@@ -196,22 +277,36 @@ p {
     position: fixed;
     top: 0;
     bottom: 0;
-    width: 300px;
+    height: 100%;
+    width: var(--torch-width);
     z-index: 0;
     pointer-events: none;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(255, 140, 0, 0.8) 0%,
-      transparent 50%
-    );
-    animation: torch-flicker 4s infinite linear;
+
+    will-change: transform, opacity;
+
+    filter: blur(3px);
+
+    mix-blend-mode: screen;
+    background:
+      radial-gradient(
+        ellipse at center,
+        var(--torch-core-color) 0%,
+        rgba(255, 230, 150, 0) 30%
+      ),
+      radial-gradient(
+        ellipse at center,
+        var(--torch-mid-color) 5%,
+        var(--torch-edge-color) 40%,
+        rgba(90, 15, 0, 0) 70%
+      );
   }
 
   body::before {
-    left: -130px;
+    left: var(--torch-offset);
+    animation: torch-flicker 7.3s infinite;
   }
   body::after {
-    right: -130px;
-    animation-delay: 0.15s;
+    right: var(--torch-offset);
+    animation: torch-flicker 8.9s infinite;
   }
 }
