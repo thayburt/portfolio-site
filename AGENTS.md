@@ -33,13 +33,13 @@
 
 - **Theme:** Computer Role-Playing Game (CRPG) / Fantasy Scroll. The interface mimics a physical scroll or parchment found in a fantasy setting.
 - **Visual Metaphor:**
-    - **Continuous Scroll:** The content flows vertically as a single, continuous document, resembling a long scroll.
-    - **Unrolling Effect:** The bottom of the viewport should feature a visual "roll" or edge that stays fixed or animates to simulate the scroll unrolling as the user scrolls down, enhancing the physical metaphor (CSS-only implementation preferred).
-    - **Parchment Texture:** The background uses parchment or paper textures to fit the theme.
-    - **Ornate Borders:** Sections may be separated by stylized dividers or borders typical of CRPG UI.
+  - **Continuous Scroll:** The content flows vertically as a single, continuous document, resembling a long scroll.
+  - **Unrolling Effect:** The bottom of the viewport should feature a visual "roll" or edge that stays fixed or animates to simulate the scroll unrolling as the user scrolls down, enhancing the physical metaphor (CSS-only implementation preferred).
+  - **Parchment Texture:** The background uses parchment or paper textures to fit the theme.
+  - **Ornate Borders:** Sections may be separated by stylized dividers or borders typical of CRPG UI.
 - **Navigation & Interaction:**
-    - **Standard Scrolling:** Uses native vertical scrolling for maximum accessibility and ease of use.
-    - **Typography:** Fonts should be readable but thematic (e.g., a clean serif that looks like hand-written text or print).
+  - **Standard Scrolling:** Uses native vertical scrolling for maximum accessibility and ease of use.
+  - **Typography:** Fonts should be readable but thematic (e.g., a clean serif that looks like hand-written text or print).
 
 ### Style Management
 

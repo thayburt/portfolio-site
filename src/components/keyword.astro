@@ -1,5 +1,13 @@
-<span class="keyword" data-keyword>
-    <span class="keyword-display"><slot name="display">{Astro.props.text}</slot></span>
+---
+interface Props {
+    text?: string;
+    tabindex?: string | number;
+}
+
+const { text, tabindex = "0" } = Astro.props;
+---
+<span class="keyword" data-keyword tabindex={tabindex}>
+    <span class="keyword-display"><slot name="display">{text}</slot></span>
     <span class="popup-anchor">
         <span class="popup">
             (<slot />)
@@ -12,6 +20,13 @@
         position: relative;
         display: inline-block;
         cursor: help;
+        outline: none;
+        border-radius: 0.2rem;
+        transition: box-shadow 0.2s;
+    }
+
+    .keyword:focus-visible {
+        box-shadow: 0 0 0 2px var(--primary-accent);
     }
 
     .keyword-display {
@@ -46,13 +61,17 @@
         pointer-events: none;
     }
 
-    .keyword:hover .popup {
+    .keyword:hover .popup,
+    .keyword:focus-within .popup,
+    :global(a:focus-within) .keyword .popup {
         visibility: visible;
         opacity: 1;
         pointer-events: auto;
     }
 
-    .keyword:hover .keyword-display {
+    .keyword:hover .keyword-display,
+    .keyword:focus-within .keyword-display,
+    :global(a:focus-within) .keyword .keyword-display {
         color: var(--primary-accent-hover);
     }
 
