@@ -1,43 +1,44 @@
-# Astro Starter Kit: Minimal
+# Thayen's Personal Portfolio
 
-```sh
-pnpm create astro@latest -- --template minimal
+Welcome to the source code for my personal portfolio site, [thayen.dev](https://thayen.dev). This project serves as a digital showcase of my work, skills, and experience. It is designed with a unique "Environmental Depth / Manuscript" theme, aiming to simulate the feel of physical parchment and ink on a desk.
+
+This project also marks my very first time building a site with [Astro](https://astro.build/)!
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Astro](https://astro.build/)
+- **Hosting:** [Cloudflare Workers](https://workers.cloudflare.com/)
+- **Language:** TypeScript
+- **Package Manager:** pnpm
+
+## 🚀 Local Development
+
+To get started with local development, clone the repository and install the dependencies:
+
+```bash
+pnpm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Start the local development server:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+pnpm dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The site will be available at `http://localhost:4321`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 📦 Deployment
 
-Any static assets, like images, can be placed in the `public/` directory.
+Deployment is handled via Cloudflare Wrangler. A custom deployment script is included in `package.json` for convenience.
 
-## 🧞 Commands
+To deploy the site to Cloudflare Workers, simply run:
 
-All commands are run from the root of the project, from a terminal:
+```bash
+pnpm deploy
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+This will execute `wrangler deploy -c ./wrangler.jsonc`.
 
-## 👀 Want to learn more?
+## 🙏 Acknowledgements
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+A special thanks to Gemini for being instrumental in helping me figure out some of the complex styling for the thematic elements and for generating the initial SVGs (which I then fine-tuned for the final design).
