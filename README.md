@@ -48,4 +48,4 @@ This will execute `wrangler deploy -c ./wrangler.jsonc`.
 
 ## 🙏 Acknowledgements
 
-A special thanks to Gemini for being instrumental in helping me figure out some of the complex styling for the thematic elements and for generating the initial SVGs (which I then fine-tuned for the final design).
+A special thanks to Gemini for being instrumental in helping me figure out some of the complex styling for the thematic elements and for generating the initial SVGs.
