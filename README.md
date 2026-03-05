@@ -13,7 +13,14 @@ This project also marks my very first time building a site with [Astro](https://
 
 ## 🚀 Local Development
 
-To get started with local development, clone the repository and install the dependencies:
+To get started with local development, first clone the repository:
+
+```bash
+git clone https://github.com/N0tAI/thayen.dev.git
+cd thayen.dev
+```
+
+Then, install the dependencies:
 
 ```bash
 pnpm install
