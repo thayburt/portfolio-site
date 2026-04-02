@@ -59,6 +59,13 @@ const { text, tabindex = "0" } = Astro.props;
         display: block;
         transition: opacity 0.2s ease-in-out;
         pointer-events: none;
+
+        /* Reset font styles to "normal" regardless of parent context */
+        font-family: "Spectral", serif;
+        font-size: 1rem;
+        font-weight: normal;
+        text-transform: none;
+        line-height: 1.4;
     }
 
     .keyword:hover .popup,
@@ -84,11 +91,12 @@ const { text, tabindex = "0" } = Astro.props;
 </style>
 
 <script>
+    type QueryResult = HTMLElement | null;
     // Progressive enhancement: clamp popup position to container bounds
     function clampPopupPosition(keyword: HTMLElement) {
-        const popup = keyword.querySelector('.popup') as HTMLElement | null;
-        const popupAnchor = keyword.querySelector('.popup-anchor') as HTMLElement | null;
-        const container = keyword.closest('.container') as HTMLElement | null;
+        const popup: QueryResult | null = keyword.querySelector('.popup');
+        const popupAnchor: QueryResult = keyword.querySelector('.popup-anchor');
+        const container: QueryResult = keyword.closest('.container');
         
         if (!popup || !popupAnchor || !container) return;
         

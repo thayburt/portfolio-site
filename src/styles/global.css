@@ -6,10 +6,8 @@
 
   /* Text & Accents */
   --text-color: #302b27; /* Iron Gall Ink (slightly warm dark grey, easier on eyes than #000) */
-  --primary-accent: #b38235; /* Tarnished Brass/Gold */
-  --primary-accent-hover: #cda256;
-  --emphasis-accent: #9c2a1c; /* Fresh Ribbon/Wax Seal */
-  --emphasis-accent-hover: #c23523;
+  --primary-accent: #7a571e; /* Deep Tarnished Brass (Accessible 5.4:1) */
+  --primary-accent-hover: #67430a; /* Lighter Tarnished Brass (Accessible 4.5:1) */
   --border-color: #cfae84; /* Matches the SVG's golden-amber color burn */
 
   --max-width: 50em;
@@ -17,7 +15,8 @@
 }
 
 .parchment {
-  background: var(--page-bg) url("/images/parchment_texture.svg") repeat top left;
+  background: var(--page-bg) url("/images/parchment_texture.svg") repeat top
+    left;
 }
 
 .parchment::after {
