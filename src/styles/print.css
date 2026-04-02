@@ -1,0 +1,89 @@
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .parchment {
+    background: none !important;
+  }
+
+  .parchment::after {
+    display: none !important;
+  }
+
+  .container {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    page-break-after: avoid;
+  }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  /* Don't expand links that are just anchor links (starting with #) or javascript */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  /* Keyword Component Print Styles */
+  .keyword .popup,
+  .keyword .popup-anchor {
+    display: none !important;
+  }
+
+  .keyword-display {
+    color: #000000 !important;
+    font-weight: bold !important;
+  }
+
+  /* Fix for address links in the header */
+  address {
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+    margin-top: 1rem !important;
+  }
+
+  address a {
+    display: inline !important;
+    width: auto !important;
+    height: auto !important;
+    text-decoration: none !important;
+  }
+
+  address a[href]::after {
+    content: " - " attr(href) !important;
+    font-size: 1em;
+  }
+
+  address a svg {
+    display: inline-block !important;
+    vertical-align: middle;
+  }
+}
