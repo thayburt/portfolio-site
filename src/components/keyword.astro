@@ -1,7 +1,7 @@
 ---
 interface Props {
-    text?: string;
-    tabindex?: string | number;
+	text?: string;
+	tabindex?: string | number;
 }
 
 const { text, tabindex = "0" } = Astro.props;
@@ -142,7 +142,9 @@ const { text, tabindex = "0" } = Astro.props;
         });
 
         window.addEventListener('resize', () => {
-            keywords.forEach(keyword => clampPopupPosition(keyword));
+            keywords.forEach((keyword) => {
+				clampPopupPosition(keyword);
+			});
         }, { passive: true });
     }
     

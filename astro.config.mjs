@@ -14,4 +14,3 @@ export default defineConfig({
 	integrations: [icon(), sitemap()],
 	trailingSlash: "always",
 });
-
