@@ -1,6 +1,6 @@
 {
 	"name": "portfolio-worker",
-	"compatibility_date":"2026-04-03",
+	"compatibility_date": "2026-04-03",
 	"assets": {
 		"directory": "./dist"
 	},
@@ -8,9 +8,9 @@
 		"enabled": true
 	},
 	"routes": [
-    {
-      "pattern": "thayen.dev",
-      "custom_domain": true
-    }
-  ]
+		{
+			"pattern": "thayen.dev",
+			"custom_domain": true
+		}
+	]
 }
