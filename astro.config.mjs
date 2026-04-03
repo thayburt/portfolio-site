@@ -1,15 +1,17 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
-import icon from 'astro-icon';
 
-import sitemap from '@astrojs/sitemap';
+import cloudflare from "@astrojs/cloudflare";
+import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: cloudflare({
-    prerenderEnvironment: 'node'
-  }),
-  integrations: [icon(), sitemap()],
-  trailingSlash: 'always'
+	site: "https://thayen.dev",
+	adapter: cloudflare({
+		prerenderEnvironment: "node",
+	}),
+	integrations: [icon(), sitemap()],
+	trailingSlash: "always",
 });
+
