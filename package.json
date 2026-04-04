@@ -14,10 +14,9 @@
 		"format:fix": "biome format --fix .",
 		"preview": "astro preview",
 		"astro": "astro",
-		"deploy": "wrangler deploy -c ./wrangler.jsonc"
+		"build:deploy": "wrangler deploy -c ./wrangler.jsonc"
 	},
 	"dependencies": {
-		"@astrojs/cloudflare": "^13.1.7",
 		"@astrojs/sitemap": "^3.7.2",
 		"@iconify-json/mdi": "^1.2.3",
 		"astro": "6.1.3",
