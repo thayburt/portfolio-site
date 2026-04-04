@@ -3,6 +3,12 @@ dist/
 # generated types
 .astro/
 .wrangler/
+# generated assets
+public/favicon.ico
+public/thayen-dev-192.png
+public/thayen-dev-384.png
+public/thayen-dev-512.png
+public/thayen-dev-1024.png
 
 # dependencies
 node_modules/
