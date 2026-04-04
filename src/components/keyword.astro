@@ -9,7 +9,7 @@ const { text, tabindex = "0" } = Astro.props;
 // Generate a random ID so we can link aria-describedby to the popup tooltip
 const popupId = `keyword-popup-${crypto.randomUUID()}`;
 ---
-<span class="keyword" data-keyword tabindex={tabindex} aria-describedby={popupId}>
+<span class="keyword" data-keyword tabindex={tabindex} aria-describedby={popupId} role="term">
     <span class="keyword-display"><slot name="display">{text}</slot></span>
     <span class="popup-anchor">
         <span class="popup" id={popupId} role="tooltip">
