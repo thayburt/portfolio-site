@@ -6,11 +6,18 @@ type AriaRole = HTMLAttributes<'div'>['role'];
 
 interface Props {
 	text?: string;
-	tabindex?: string | number;
+	tabindex?: string | number | null;
 	role?: AriaRole;
 }
 
-const { text, tabindex = "0", role = "term" } = Astro.props;
+const { text, tabindex = null, role = "term" } = Astro.props;
+
+if(tabindex === null) {
+    if(role === "none")
+        tabindex = "-1";
+    else
+        tabindex = "0";
+}
 
 // Generate a random ID so we can link aria-describedby to the popup tooltip
 const popupId = `keyword-popup-${crypto.randomUUID()}`;
