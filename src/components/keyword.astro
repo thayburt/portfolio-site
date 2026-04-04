@@ -1,8 +1,13 @@
 ---
+import crypto from "node:crypto";
+import type { HTMLAttributes } from 'astro/types';
+
+type AriaRole = HTMLAttributes<'div'>['role'];
+
 interface Props {
 	text?: string;
 	tabindex?: string | number;
-	role?: string;
+	role?: AriaRole;
 }
 
 const { text, tabindex = "0", role = "term" } = Astro.props;
