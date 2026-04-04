@@ -12,20 +12,22 @@ interface Props {
 
 const { text, tabindex = null, role = "term" } = Astro.props;
 
+let hasRole: boolean = role !== "none";
+
 if(tabindex === null) {
-    if(role === "none")
-        tabindex = "-1";
-    else
+    if(hasRole)
         tabindex = "0";
+    else
+        tabindex = "-1";
 }
 
 // Generate a random ID so we can link aria-describedby to the popup tooltip
 const popupId = `keyword-popup-${crypto.randomUUID()}`;
 ---
-<span class="keyword" data-keyword tabindex={tabindex} aria-describedby={popupId} role={role !== "none" ? role : undefined}>
+<span class="keyword" data-keyword tabindex={tabindex} aria-describedby={hasRole ? popupId : undefined} role={hasRole ? role : undefined}>
     <span class="keyword-display"><slot name="display">{text}</slot></span>
     <span class="popup-anchor">
-        <span class="popup" id={popupId} role="tooltip">
+        <span class="popup" id={popupId} role={hasRole ? "tooltip" : undefined}>
             (<slot />)
         </span>
     </span>
