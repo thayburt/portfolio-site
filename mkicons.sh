@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 FAVICON="public/favicon.svg"
 FAVICON_SQUARE="public/favicon-square.svg"
