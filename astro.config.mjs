@@ -8,5 +8,5 @@ import assetGen from "./generate-assets";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://thayen.dev",
-	integrations: [icon(), sitemap(), assetGen()]
+	integrations: [icon(), sitemap(), assetGen()],
 });
