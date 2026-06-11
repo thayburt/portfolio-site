@@ -109,7 +109,11 @@ import SiteLayout from "@/layouts/site_layout.astro";
       <article>
         <div class="spaced">
           <h3>Quality Assurance Analyst Co-op</h3>
-          <time datetime="P4M">Jan 2023 - Apr 2023</time>
+          <span class="date-range">
+            <time datetime="2023-01">Jan 2023</time>
+            <span> to </span>
+            <time datetime="2023-04">Apr 2023</time>
+          </span>
         </div>
         <p>At <strong>Carfax Canada</strong></p>
         <ul>
@@ -123,7 +127,11 @@ import SiteLayout from "@/layouts/site_layout.astro";
       <article>
         <div class="spaced">
           <h3>Co-op Student</h3>
-          <time datetime="P6M">Jan 2019 - Jun 2019</time>
+          <span class="date-range">
+            <time datetime="2019-01">Jan 2019</time>
+            <span> to </span>
+            <time datetime="2019-06">Jun 2019</time>
+          </span>
         </div>
         <p>At <strong>Powernoodle</strong></p>
         <ul>
@@ -137,7 +145,11 @@ import SiteLayout from "@/layouts/site_layout.astro";
       <article>
         <div class="spaced">
           <h3>Team Member</h3>
-          <time datetime="2023-08-01">Aug 2023 - Present</time>
+          <span class="date-range">
+            <time datetime="2023-08">Aug 2023</time>
+            <span> to </span>
+            Present
+          </span>
         </div>
         <p>At <Keyword><Fragment slot="display"><strong>M.C. Moore Holdings LTD</strong></Fragment>Tim Hortons</Keyword></p>
       </article>
@@ -244,7 +256,7 @@ import SiteLayout from "@/layouts/site_layout.astro";
     align-items: baseline;
     gap: 1rem;
   }
-  #experience time {
+  #experience .date-range {
     font-weight: bold;
     font-family: "Spectral", serif;
     white-space: nowrap;
