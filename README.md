@@ -48,7 +48,7 @@ Deployment is handled via Cloudflare Wrangler. A custom deployment script is inc
 To deploy the site to Cloudflare Workers, simply run:
 
 ```bash
-pnpm deploy
+pnpm build:deploy
 ```
 
 This will execute `wrangler deploy -c ./wrangler.jsonc`.
