@@ -111,6 +111,9 @@ const popupId = `keyword-popup-${crypto.randomUUID()}`;
 
 <script>
     type QueryResult = HTMLElement | null;
+    let activeKeywords: HTMLElement[] = [];
+    const initializedKeywords = new WeakSet<HTMLElement>();
+
     // Progressive enhancement: clamp popup position to container bounds
     function clampPopupPosition(keyword: HTMLElement) {
         const popup: QueryResult | null = keyword.querySelector('.popup');
@@ -149,23 +152,26 @@ const popupId = `keyword-popup-${crypto.randomUUID()}`;
     
     // Initialize event listeners and perform initial clamp
     function initKeywords() {
-        const keywords = document.querySelectorAll<HTMLElement>('[data-keyword]');
+        activeKeywords = Array.from(document.querySelectorAll<HTMLElement>('[data-keyword]'));
         
-        keywords.forEach(keyword => {
+        activeKeywords.forEach(keyword => {
             // Initial clamp to prevent layout overflow
             clampPopupPosition(keyword);
-            
+
+            if (initializedKeywords.has(keyword)) return;
+            initializedKeywords.add(keyword);
+
             // Re-clamp on interaction in case of dynamic layout changes
             keyword.addEventListener('mouseenter', () => clampPopupPosition(keyword));
             keyword.addEventListener('touchstart', () => clampPopupPosition(keyword), { passive: true });
         });
-
-        window.addEventListener('resize', () => {
-            keywords.forEach((keyword) => {
-				clampPopupPosition(keyword);
-			});
-        }, { passive: true });
     }
+
+    window.addEventListener('resize', () => {
+        activeKeywords.forEach((keyword) => {
+            clampPopupPosition(keyword);
+        });
+    }, { passive: true });
     
     // Initial load
     initKeywords();
