@@ -21,6 +21,10 @@ const { description } = Astro.props;
   </head>
 
   <body>
+    <div class="torch-lights" aria-hidden="true">
+      <div class="torch-light torch-light-left"></div>
+      <div class="torch-light torch-light-right"></div>
+    </div>
     <div class="container parchment">
       <slot />
     </div>
