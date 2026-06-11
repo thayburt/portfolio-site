@@ -41,6 +41,20 @@ changing the source SVGs, install ImageMagick and run:
 pnpm generate:icons
 ```
 
+## Testing
+
+Install the Playwright Chromium browser once:
+
+```bash
+pnpm exec playwright install chromium
+```
+
+Then build the site and run its browser, accessibility, and local-link smoke tests:
+
+```bash
+pnpm test
+```
+
 ## 📦 Deployment
 
 Deployment is handled via Cloudflare Wrangler. A custom deployment script is included in `package.json` for convenience.

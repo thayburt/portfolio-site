@@ -16,7 +16,9 @@
 		"format:fix": "biome format --fix .",
 		"preview": "astro preview",
 		"astro": "astro",
-		"build:deploy": "wrangler deploy -c ./wrangler.jsonc"
+		"build:deploy": "wrangler deploy -c ./wrangler.jsonc",
+		"test": "pnpm build && playwright test",
+		"test:browser": "playwright test"
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.7.3",
@@ -26,7 +28,9 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.9",
+		"@axe-core/playwright": "^4.11.3",
 		"@biomejs/biome": "^2.4.16",
+		"@playwright/test": "^1.60.0",
 		"typescript": "^5.9.3",
 		"wrangler": "^4.99.0"
 	}
