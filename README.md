@@ -34,6 +34,13 @@ pnpm dev
 
 The site will be available at `http://localhost:4321`.
 
+The generated favicon and PWA icons are checked into `public/`. To regenerate them after
+changing the source SVGs, install ImageMagick and run:
+
+```bash
+pnpm generate:icons
+```
+
 ## 📦 Deployment
 
 Deployment is handled via Cloudflare Wrangler. A custom deployment script is included in `package.json` for convenience.
