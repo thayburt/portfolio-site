@@ -19,5 +19,5 @@ FAVICON_SQUARE="public/favicon-square.svg"
 
 # Create icons if page is saved to mobile screens
 for size in 180 192 384 512 1024; do
-    "${cmd}" -background none -size "${size}x${size}" "${FAVICON_SQUARE}" "public/thayen-dev-${size}.png"
+    "${cmd}" -background none -size "${size}x${size}" "${FAVICON_SQUARE}" "public/portfolio-icon-${size}.png"
 done
