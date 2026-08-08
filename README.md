@@ -1,6 +1,6 @@
 # Thayen's Personal Portfolio
 
-Welcome to the source code for my personal portfolio site, [thayen.dev](https://thayen.dev). This project serves as a digital showcase of my work, skills, and experience. It is designed with a unique "Environmental Depth / Manuscript" theme, aiming to simulate the feel of physical parchment and ink on a desk.
+Welcome to the source code for my personal portfolio site, [thayen.ca](https://thayen.ca). This project serves as a digital showcase of my work, skills, and experience. It is designed with a unique "Environmental Depth / Manuscript" theme, aiming to simulate the feel of physical parchment and ink on a desk.
 
 This project also marks my very first time building a site with [Astro](https://astro.build/)!
 

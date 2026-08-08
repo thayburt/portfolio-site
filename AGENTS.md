@@ -1,8 +1,8 @@
-# AGENTS.md Context: thayen.dev
+# AGENTS.md Context: thayen.ca
 
 ## Project Overview
 
-`thayen.dev` is a personal portfolio website for Thayen Burtenshaw, a Software Engineer. The site is designed as a CRPG-inspired digital scroll (or parchment) that serves as a resume and project showcase.
+`thayen.ca` is a personal portfolio website for Thayen Burtenshaw, a Software Engineer. The site is designed as a CRPG-inspired digital scroll (or parchment) that serves as a resume and project showcase.
 
 ### Tech Stack
 

@@ -9,7 +9,7 @@
 	},
 	"routes": [
 		{
-			"pattern": "thayen.dev",
+			"pattern": "thayen.ca",
 			"custom_domain": true
 		}
 	]

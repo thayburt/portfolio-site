@@ -6,6 +6,6 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://thayen.dev",
+	site: "https://thayen.ca",
 	integrations: [icon(), sitemap()],
 });
