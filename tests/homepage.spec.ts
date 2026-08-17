@@ -36,6 +36,31 @@ test("homepage loads without local runtime or accessibility errors", async ({ pa
 	await expect(page.getByRole("heading", { level: 1, name: "Thayen Burtenshaw" })).toBeVisible();
 	await expect(page.getByRole("main")).toBeVisible();
 
+	const structuredData = JSON.parse(
+		(await page.locator('script[type="application/ld+json"]').textContent()) ?? "null",
+	) as Record<string, unknown> | null;
+	expect(structuredData).toMatchObject({
+		"@context": "https://schema.org",
+		"@graph": expect.arrayContaining([
+			expect.objectContaining({
+				"@type": "Person",
+				"@id": "https://thayen.ca/#person",
+				name: "Thayen Burtenshaw",
+			}),
+			expect.objectContaining({
+				"@type": "WebSite",
+				"@id": "https://thayen.ca/#website",
+				about: { "@id": "https://thayen.ca/#person" },
+			}),
+			expect.objectContaining({
+				"@type": "ProfilePage",
+				"@id": "https://thayen.ca/#profile",
+				isPartOf: { "@id": "https://thayen.ca/#website" },
+				mainEntity: { "@id": "https://thayen.ca/#person" },
+			}),
+		]),
+	});
+
 	const firstKeyword = page.locator("[data-keyword][role=term]").first();
 	await firstKeyword.focus();
 	await expect(firstKeyword.locator(".popup")).toBeVisible();

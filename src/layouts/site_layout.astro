@@ -1,9 +1,18 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import type { Graph } from "schema-dts";
+import { personJsonLd } from "@/data/person";
+import { profilePageJsonLd } from "@/data/profile-page";
+import { websiteJsonLd } from "@/data/website";
+import { serializeJsonLd } from "@/utils/jsonld";
 import "../styles/global.css";
 import "../styles/torch.css";
 const { description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const structuredDataJsonLd: Graph = {
+    "@context": "https://schema.org",
+    "@graph": [personJsonLd, websiteJsonLd, profilePageJsonLd],
+};
 ---
 
 <html lang="en">
@@ -19,10 +28,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         />
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="sitemap" href="/sitemap-index.xml" />
+        <link
+            rel="alternate"
+            type="application/ld+json"
+            href="/person.jsonld"
+            title="Thayen Burtenshaw structured data"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
         {description && <meta name="description" content={description} />}
         <title>Thayen | Software Developer</title>
+        <script type="application/ld+json" set:html={serializeJsonLd(structuredDataJsonLd)} is:inline />
         <ClientRouter />
     </head>
 

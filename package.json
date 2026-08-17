@@ -31,6 +31,7 @@
 		"@axe-core/playwright": "^4.11.3",
 		"@biomejs/biome": "^2.4.16",
 		"@playwright/test": "^1.60.0",
+		"schema-dts": "^2.0.0",
 		"typescript": "^5.9.3",
 		"wrangler": "^4.99.0"
 	}
